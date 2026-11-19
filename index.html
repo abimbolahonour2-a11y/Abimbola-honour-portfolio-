@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Abimbola Goodnews Honour, an advanced web developer and programmer.">
+  <title>Abimbola Goodnews Honour | Web Developer</title>
+  <style>
+    :root {
+      --navy: #101d35;
+      --blue: #2563eb;
+      --pale: #eef4ff;
+      --ink: #182338;
+      --muted: #64748b;
+      --white: #fff;
+      --line: #e5eaf2;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink); background: var(--white); line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(12px);
+    }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; color: var(--navy); font-size: 1.05rem; }
+    .brand span { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; font-size: .92rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--blue); }
+    .menu-btn { display: none; border: 0; background: none; font-size: 1.6rem; color: var(--navy); cursor: pointer; }
+    .hero { background: linear-gradient(120deg, #f5f8ff 0%, #fff 62%); padding: 105px 0 100px; }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; align-items: center; gap: 60px; }
+    .eyebrow { color: var(--blue); font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; }
+    h1 { color: var(--navy); font-size: clamp(2.7rem, 6vw, 4.8rem); line-height: 1.08; letter-spacing: -.055em; margin: 18px 0; }
+    h1 span { color: var(--blue); }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 590px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; padding: 13px 21px; border-radius: 8px; font-weight: 700; transition: .2s; }
+    .btn-primary { background: var(--blue); color: white; box-shadow: 0 9px 22px #2563eb30; }
+    .btn-primary:hover { background: #174fc7; transform: translateY(-2px); }
+    .btn-outline { border: 1px solid #cbd5e1; color: var(--navy); background: white; }
+    .hero-card { background: var(--navy); color: white; padding: 34px; border-radius: 18px; box-shadow: 0 24px 60px #101d3524; }
+    .hero-card .monogram { width: 76px; height: 76px; display: grid; place-items: center; border-radius: 16px; background: #ffffff16; color: #a9c5ff; font-size: 1.7rem; font-weight: 800; margin-bottom: 25px; }
+    .hero-card h2 { font-size: 1.3rem; margin-bottom: 6px; }
+    .hero-card p { color: #c4cee0; font-size: .94rem; }
+    .status { display: inline-flex; gap: 8px; align-items: center; margin-top: 22px; color: #d9e6ff; font-size: .85rem; }
+    .status:before { content: ""; width: 8px; height: 8px; background: #52d6a2; border-radius: 50%; }
+    section { padding: 88px 0; }
+    .section-head { max-width: 650px; margin-bottom: 38px; }
+    .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); color: var(--navy); letter-spacing: -.04em; margin: 8px 0 12px; }
+    .section-head p, .about-copy { color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 55px; align-items: start; }
+    .level-box { background: var(--pale); border: 1px solid #dce7ff; padding: 28px; border-radius: 14px; }
+    .level-box strong { display: block; color: var(--blue); font-size: 1.7rem; }
+    .level-box span { color: var(--muted); font-size: .9rem; }
+    .about-copy p + p { margin-top: 16px; }
+    .skills { background: #f8faff; }
+    .skill-grid, .project-grid, .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .skill-card, .project-card, .service-card { background: white; border: 1px solid var(--line); padding: 25px; border-radius: 13px; }
+    .skill-card h3, .project-card h3, .service-card h3 { color: var(--navy); margin-bottom: 8px; }
+    .skill-card p, .project-card p, .service-card p { color: var(--muted); font-size: .93rem; }
+    .skill-icon { color: var(--blue); font-size: 1.35rem; font-weight: 800; margin-bottom: 14px; }
+    .project-card { min-height: 205px; display: flex; flex-direction: column; justify-content: space-between; }
+    .tag { display: inline-block; margin-top: 18px; color: var(--blue); background: var(--pale); border-radius: 30px; padding: 5px 10px; font-size: .76rem; font-weight: 700; width: fit-content; }
+    .contact { background: var(--navy); color: white; }
+    .contact .section-head h2 { color: white; }
+    .contact .section-head p { color: #c4cee0; }
+    .contact-panel { border: 1px solid #ffffff25; border-radius: 14px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .contact-panel p { color: #c4cee0; }
+    footer { background: #0b1426; color: #aebbd0; padding: 22px 0; font-size: .85rem; text-align: center; }
+    @media (max-width: 760px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 76px; left: 0; right: 0; padding: 20px 5%; background: white; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; }
+      .nav-links.open { display: flex; }
+      .hero { padding: 75px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .skill-grid, .project-grid, .service-grid { grid-template-columns: 1fr; }
+      section { padding: 68px 0; }
+      .contact-panel { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">ABIMBOLA<span>.</span></a>
+      <button class="menu-btn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Web Developer &amp; Programmer</div>
+          <h1>Hello, I'm<br><span>Abimbola Goodnews Honour.</span></h1>
+          <p>I build thoughtful digital experiences and practical web solutions. I enjoy turning ideas into clear, functional and user-friendly products.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">View My Work</a>
+            <a class="btn btn-outline" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="monogram">AGH</div>
+          <h2>Developer Profile</h2>
+          <p>Focused on continuous learning, clean solutions and creating useful experiences for the web.</p>
+          <div class="status">Advanced developer level</div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">A little about me</div>
+            <h2>Building with purpose.</h2>
+          </div>
+          <div class="level-box"><strong>Advanced</strong><span>Current professional level</span></div>
+        </div>
+        <div class="about-copy">
+          <p>I'm Abimbola Goodnews Honour, a web developer and programmer who is passionate about technology and building useful digital solutions.</p>
+          <p>I value problem-solving, attention to detail and steady improvement. My goal is to create websites and applications that are accessible, reliable and easy to use.</p>
+          <p>This portfolio is a growing showcase of my technical skills, projects and the work I’m excited to take on.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">What I work with</div>
+          <h2>Skills &amp; Technologies</h2>
+          <p>My technical toolkit includes programming languages and core web technologies for building responsive, user-friendly websites.</p>
+        </div>
+        <div class="skill-grid">
+          <article class="skill-card"><div class="skill-icon">&lt;/&gt;</div><h3>Programming Languages</h3><p>Python and Java.</p></article>
+          <article class="skill-card"><div class="skill-icon">▧</div><h3>Web Technologies</h3><p>HTML for structuring web pages and CSS for styling layouts, colors, typography and responsive designs.</p></article>
+          <article class="skill-card"><div class="skill-icon">⚙</div><h3>Tools &amp; Frameworks</h3><p>GitHub for code hosting, version control collaboration and project management.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Selected work</div>
+          <h2>Featured Projects</h2>
+          <p>Your real projects can be featured here with a short description, technologies used and a link to each live demo or code repository.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card"><div><h3>Kings-Mat — Online Marketplace</h3><p>A multi-category shopping website concept for discovering products across electronics, fashion, home, beauty, groceries and more. Includes product search, category browsing, wishlist, cart and an order-enquiry/checkout flow.</p></div><a class="tag" href="https://kingsmat.vercel.app/" target="_blank" rel="noopener">View live project ↗</a></article>
+          <article class="project-card"><div><h3>Project Two</h3><p>Add another website, application or coding project here when you are ready to showcase it.</p></div><span class="tag">Coming soon</span></article>
+          <article class="project-card"><div><h3>Project Three</h3><p>Add another project and briefly explain what it does and the technologies you used.</p></div><span class="tag">Coming soon</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">How I can help</div>
+          <h2>Services</h2>
+          <p>These are example service areas. Keep only the services you are confident offering.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card"><div class="skill-icon">01</div><h3>Website Development</h3><p>Building responsive websites designed to work across desktop, tablet and mobile devices.</p></article>
+          <article class="service-card"><div class="skill-icon">02</div><h3>Website Maintenance</h3><p>Updating website content, fixing issues and helping keep web experiences running smoothly.</p></article>
+          <article class="service-card"><div class="skill-icon">03</div><h3>Programming Solutions</h3><p>Developing practical solutions to defined problems through code and careful testing.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Let's connect</div>
+          <h2>Have a project in mind?</h2>
+          <p>I'd be glad to hear about opportunities, collaborations and interesting projects.</p>
+        </div>
+        <div class="contact-panel">
+          <div><h3>Abimbola Goodnews Honour</h3><p><a href="mailto:abimbolahonour2@gmail.com">abimbolahonour2@gmail.com</a></p></div>
+          <a class="btn btn-primary" href="mailto:abimbolahonour2@gmail.com">Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container">© <span id="year"></span> Abimbola Goodnews Honour. All rights reserved.</div></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
